@@ -1,0 +1,11 @@
+{
+  "extends": ["node", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "parserOptions": { "ecmaVersion": 2015, "ecmaFeatures": { "legacyDecorators": true } }
+}
