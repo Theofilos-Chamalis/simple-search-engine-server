@@ -2,17 +2,11 @@ import express, { Express } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import pinoExpress from 'express-pino-logger';
-import pino from 'pino';
+import { pinoLogger, pinoExpress } from './utils/logger';
 
 dotenv.config({ path: '.env' });
 
 import companyRoutes from './routes/companies';
-
-const pinoLogger = pino(
-  { name: process.env.npm_package_name, level: 'info' },
-  pino.transport({ target: 'pino-pretty' }),
-);
 
 const PORT = process.env.PORT || 3000;
 const app: Express = express();
