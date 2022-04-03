@@ -7,7 +7,6 @@ import pino from 'pino';
 
 dotenv.config({ path: '.env' });
 
-import db from './db/config';
 import companyRoutes from './routes/companies';
 
 const pinoLogger = pino(
@@ -29,9 +28,6 @@ app.use('/api/companies', companyRoutes);
 app.listen(PORT, () => {
   pinoLogger.info(`Running on ${PORT} ⚡`);
 });
-
-const data = db.getData('/');
-console.log(data);
 
 process.on('SIGINT', async () => {
   pinoLogger.error(`${process.env.npm_package_name} has stopped!`);

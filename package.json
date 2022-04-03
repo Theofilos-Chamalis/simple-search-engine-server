@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc && cp src/db/company.db.json dist/db/company.db.json",
     "start:prod": "yarn build && cross-env NODE_ENV=production node dist/index.js",
     "dev": "yarn build && cross-env NODE_ENV=development concurrently \"tsc --watch\" \"nodemon -q dist/index.js\""
   },
