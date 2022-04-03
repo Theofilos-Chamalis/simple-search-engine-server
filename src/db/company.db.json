@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Beaver Builders",
+    "specialties": ["Electrical", "Painting"],
+    "city": "berlin",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita ne hoc quidem modo paria peccata sunt.",
+    "logo": "https://picsum.photos/id/320/300"
+  },
+  {
+    "name": "ProBlue",
+    "specialties": ["Excavation", "Plumbing"],
+    "city": "hamburg",
+    "description": "Cumoe audissem Antiochum, Brute, ut solebam, cum M. In his igitur partibus duabus nihil erat, quod Zeno.",
+    "logo": "https://picsum.photos/id/321/300"
+  },
+  {
+    "name": "GreenPower",
+    "specialties": [ "Excavation", "Painting"],
+    "city": "munich",
+    "description": "Commutare gestiret duo Reges: constructio interrete. Quid ait Aristoteles reliquique Platonis alumni.",
+    "logo": "https://picsum.photos/id/322/300"
+  },
+  {
+    "name": "Contractors New",
+    "specialties": [ "Painting", "Plumbing"],
+    "city": "berlin",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita ne hoc quidem modo paria peccata sunt.",
+    "logo": "https://picsum.photos/id/323/300"
+  },
+  {
+    "name": "Destiny Homes",
+    "specialties": ["Electrical", "Plumbing"],
+    "city": "frankfurt",
+    "description": "Quod maxime efficit Theophrasti de beata vita liber, in quo multum admodum fortunae datur luxuriam no.",
+    "logo": "https://picsum.photos/id/324/300"
+  },
+  {
+    "name": "Granite Constructions",
+    "specialties": ["Electrical", "Excavation"],
+    "city": "stuttgart",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita ne hoc quidem modo paria peccata sunt.",
+    "logo": "https://picsum.photos/id/325/300"
+  },
+  {
+    "name": "Alaska Designs",
+    "specialties": ["Excavation", "Plumbing"],
+    "city": "frankfurt",
+    "description": "Cumoe audissem Antiochum, Brute, ut solebam, cum M. In his igitur partibus duabus nihil erat, quod Zeno.",
+    "logo": "https://picsum.photos/id/326/300"
+  }
+]
