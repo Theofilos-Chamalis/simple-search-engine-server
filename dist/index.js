@@ -43,26 +43,25 @@ var express_1 = __importDefault(require("express"));
 var helmet_1 = __importDefault(require("helmet"));
 var cors_1 = __importDefault(require("cors"));
 var dotenv_1 = __importDefault(require("dotenv"));
+var express_pino_logger_1 = __importDefault(require("express-pino-logger"));
+var pino_1 = __importDefault(require("pino"));
 var companies_1 = __importDefault(require("./routes/companies"));
 dotenv_1.default.config({ path: '.env' });
+var pinoLogger = (0, pino_1.default)({ name: process.env.npm_package_name, level: 'info' }, pino_1.default.transport({ target: 'pino-pretty' }));
 var PORT = process.env.PORT || 3000;
 var app = (0, express_1.default)();
 app.use((0, helmet_1.default)());
 app.use((0, cors_1.default)());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json());
-app.use('/', companies_1.default);
-// createConnection()
-//   .then(() => {
-//     console.log('Database connected 💾!');
-//     app.listen(PORT, () => console.log(`Running on ${PORT} ⚡`));
-//   })
-//   .catch(error => console.error(error));
-app.listen(PORT, function () { return console.log("Running on ".concat(PORT, " \u26A1")); });
+app.use((0, express_pino_logger_1.default)({ logger: pinoLogger, autoLogging: false }));
+app.use('/api/companies', companies_1.default);
+app.listen(PORT, function () {
+    pinoLogger.info("Running on ".concat(PORT, " \u26A1"));
+});
 process.on('SIGINT', function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        //   const dbConnection = await getConnection();
-        //   await dbConnection?.close();
+        pinoLogger.error("".concat(process.env.npm_package_name, " has stopped!"));
         throw new Error("".concat(process.env.npm_package_name, " stopped!"));
     });
 }); });

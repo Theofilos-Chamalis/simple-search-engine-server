@@ -2,10 +2,16 @@ import express, { Express } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import pinoExpress from 'express-pino-logger';
+import pino from 'pino';
 import companyRoutes from './routes/companies';
 
 dotenv.config({ path: '.env' });
 
+const pinoLogger = pino(
+  { name: process.env.npm_package_name, level: 'info' },
+  pino.transport({ target: 'pino-pretty' }),
+);
 const PORT = process.env.PORT || 3000;
 const app: Express = express();
 
@@ -13,20 +19,15 @@ app.use(helmet());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(pinoExpress({ logger: pinoLogger, autoLogging: false }));
 
-app.use('/', companyRoutes);
+app.use('/api/companies', companyRoutes);
 
-// createConnection()
-//   .then(() => {
-//     console.log('Database connected 💾!');
-//     app.listen(PORT, () => console.log(`Running on ${PORT} ⚡`));
-//   })
-//   .catch(error => console.error(error));
-
-app.listen(PORT, () => console.log(`Running on ${PORT} ⚡`));
+app.listen(PORT, () => {
+  pinoLogger.info(`Running on ${PORT} ⚡`);
+});
 
 process.on('SIGINT', async () => {
-  //   const dbConnection = await getConnection();
-  //   await dbConnection?.close();
+  pinoLogger.error(`${process.env.npm_package_name} has stopped!`);
   throw new Error(`${process.env.npm_package_name} stopped!`);
 });
