@@ -12,7 +12,7 @@ const pinoLogger = pino(
   { name: process.env.npm_package_name, level: 'info' },
   pino.transport({ target: 'pino-pretty' }),
 );
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3100;
 const app: Express = express();
 
 app.use(helmet());
