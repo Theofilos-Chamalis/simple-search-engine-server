@@ -16,7 +16,7 @@ router.get('/', async (req: Request, res: Response) => {
 
   const data = db.getData('/');
 
-  return res.status(200).send({ data });
+  return res.status(200).send(data);
 });
 
 export default router;
