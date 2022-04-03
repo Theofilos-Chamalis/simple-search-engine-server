@@ -6,6 +6,13 @@ const router = express.Router();
 
 const API_KEY = process.env.API_KEY;
 
+/**
+ * GET /api/companies endpoint that returns the list of companies
+ * that is retrieved from the existing company.db.json file. If
+ * the request does not include the appropriate API KEY in its headers,
+ * we reject the incoming request.
+ *
+ */
 router.get('/', async (req: Request, res: Response) => {
   const reqApiKey = req.get('x-api-key');
 
@@ -16,7 +23,7 @@ router.get('/', async (req: Request, res: Response) => {
 
   const data = db.getData('/');
 
-  return res.status(200).send({ data });
+  return res.status(200).send(data);
 });
 
 export default router;
